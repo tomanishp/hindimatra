@@ -7,7 +7,7 @@ let SwarDoubles = ["आ", "ई", "ऊ", "ऐ", "ओ", "औ"];
 let HalfChar = "्";
 let HalfNCheck = "न";
 let HalfNMark = "ं";
-let SkipChars = ["ँ", "़", ",", "…", "."];
+let SkipChars = ["ँ","़", "़", ",", "…", "."];
 let iCount = 0;
 let sRead = "";
 let sOut = "";
@@ -40,7 +40,7 @@ function AddGuru() {
 }
 
 function calcMatra() {
-    // document.getElementById('showMatra').innerHTML = 'Button is Clicked!'
+    document.getElementById('showMatra').innerHTML = '';
 
     var txtPoem = document.getElementById('txtPoem').value;
 
@@ -149,6 +149,9 @@ function calcMatra() {
                         ConvertToGurtu();
 
                     }
+                }
+                else if (bVovel && SkipChars.indexOf(sChar)>-1 ){
+                    AddGuru();
                 }
                 else if (sChar == HalfNMark) {
                     if (!bPrevVovel) {
