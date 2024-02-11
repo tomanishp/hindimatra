@@ -147,7 +147,12 @@ function processText() {
                     AddGuru();
                 } else if (sNext == "") {
                     AddLaghu();
-                    AddLaghu();
+
+                    // only when it is end of the line 
+                    // end of the word is already handled differently 
+                    if((iDx == iLen - 1)) {
+                        AddLaghu();
+                    }
                 }
                 else {
                     AddLaghu();
