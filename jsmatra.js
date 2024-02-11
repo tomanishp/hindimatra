@@ -7,7 +7,7 @@ let SwarDoubles = ["आ", "ई", "ऊ", "ऐ", "ओ", "औ"];
 let HalfChar = "्";
 let HalfNCheck = "न";
 let HalfNMark = "ं";
-let SkipChars = ["ँ","़", "़", ",", "…", "."];
+let SkipChars = ["ँ", "़", "़", ",", "…", ".", "!", ",", "।", ":", "-"];
 let iCount = 0;
 let sRead = "";
 let sOut = "";
@@ -21,7 +21,7 @@ var w = document.createElement("template");
 document.getElementById('btnCalc').addEventListener('click', calcMatra);
 
 function ConvertToGurtu() {
-    sOut = sOut.Substring(0, sOut.length - 1);
+    sOut = sOut.substring(0, sOut.length - 1);
     iCount--;
     AddGuru();
 }
@@ -59,6 +59,13 @@ function calcMatra() {
         iLen = sLine.length;
         for (let iDx = 0; iDx < sLine.length; iDx++) {
             let sChar = sLine.charAt(iDx);
+
+            let iCode = sLine.charCodeAt(iDx);
+
+            if (iCode!=32 && iCode <= 255) {
+                continue;
+            }
+
             bSpace = false;
             bVovel = false;
             bSkip = false;
@@ -141,7 +148,7 @@ function calcMatra() {
                 sCheck = sChar;
                 AddLaghu();
             }
-            else if (bVovel || (sChar == HalfNMark)) {
+            else if (bVovel || (sChar == HalfNMark) || (sChar == HalfChar)) {
                 if (!bSpace && sChar == HalfNCheck) {
                     sNext = sLine[iDx + 1];
 
@@ -150,8 +157,11 @@ function calcMatra() {
 
                     }
                 }
-                else if (bVovel && SkipChars.indexOf(sChar)>-1 ){
-                    AddGuru();
+                else if (sChar == HalfChar) {
+                    ConvertToGurtu();
+                }
+                else if (bVovel && SkipChars.indexOf(sPrev) > -1) {
+                    AddLaghu();
                 }
                 else if (sChar == HalfNMark) {
                     if (!bPrevVovel) {
@@ -175,7 +185,7 @@ function calcMatra() {
         document.getElementById('showMatra').innerHTML += "<div>"
         document.getElementById('showMatra').innerHTML += "<div>" + sLine + "</div>";
 
-        document.getElementById('showMatra').innerHTML += "<div>" + sOut + " [" + iCount+ "]</div>";
+        document.getElementById('showMatra').innerHTML += "<div>" + sOut + " [" + iCount + "]</div>";
         document.getElementById('showMatra').innerHTML += "<div>"
 
     });
