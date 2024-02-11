@@ -138,9 +138,8 @@ function processText() {
             }
 
 
+            // if current and previous both characters are vovels
             if (bPrevVovel && bVovel) {
-
-
                 if (GuruMatras.indexOf(sNext) > -1) {
                     AddLaghu();
                 }
@@ -155,6 +154,7 @@ function processText() {
                 }
 
             }
+            //when it s not vovel, and not skip character and not the . mark 
             else if (!bVovel && !bSkip && !(sChar == HalfNMark)) {
                 sCheck = sChar;
                 AddLaghu();
@@ -166,6 +166,7 @@ function processText() {
                         ConvertToGurtu();
                     }
                 }
+                // Half character and it is NOT the end of the word 
                 else if (sChar == HalfChar && sNext!="") {
                     ConvertToGurtu();
                 }
