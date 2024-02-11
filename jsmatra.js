@@ -146,7 +146,7 @@ function processText() {
                 }
                 else if (sNext == HalfChar && (iDx < iLen - 2)) {
                     AddGuru();
-                } else if (sNext == "") {
+                } else if (sNext == "" ||  && sNext==" ") {
                     AddLaghu();
                     AddLaghu();
                 }
@@ -160,13 +160,13 @@ function processText() {
                 AddLaghu();
             }
             else if (bVovel || (sChar == HalfNMark) || (sChar == HalfChar)) {
-                if (!bSpace && sChar == HalfNCheck && sNext!="") {
+                if (!bSpace && sChar == HalfNCheck && sNext!="" && sNext!=" ") {
 
                     if (sNext == HalfChar && (iDx < iLen - 2) ) {
                         ConvertToGurtu();
                     }
                 }
-                else if (sChar == HalfChar && sNext!="") {
+                else if (sChar == HalfChar && sNext!="" && sNext!=" ") {
                     ConvertToGurtu();
                 }
                 else if (bVovel && SkipChars.indexOf(sPrev) > -1) {
