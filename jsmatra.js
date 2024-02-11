@@ -15,6 +15,7 @@ let sPrev = "";
 let bPrevVovel = false;
 let bSkip = false;
 let iWordLen = 0;
+let sInnerHtml = "";
 
 var w = document.createElement("template");
 
@@ -45,8 +46,15 @@ function AddGuru() {
 function calcMatra() {
     document.getElementById('showMatra').innerHTML = '';
 
-    var txtPoem = document.getElementById('txtPoem').value;
+    sInnerHtml = "";
+    processText();
+    document.getElementById('showMatra').innerHTML += "<table class=\"matratable\">" + sInnerHtml + "</table>";;
 
+
+}
+
+function processText() {
+    var txtPoem = document.getElementById('txtPoem').value;
     let sLines = txtPoem.trim().split("\n");
 
     sLines.forEach(element => {
@@ -75,6 +83,12 @@ function calcMatra() {
             bVovel = false;
             bSkip = false;
 
+            if (iDx < iLen - 1) {
+                sNext = sLine[iDx + 1];
+            } else {
+                sNext = "";
+            }
+
             sRead += sChar;
 
             if (sChar == " ") {
@@ -90,15 +104,9 @@ function calcMatra() {
             }
             else if (GuruMatras.indexOf(sChar) > -1) {
                 AddGuru();
-                if (iDx < iLen - 1) {
-                    var sNext = sLine[iDx + 1];
-
-                    if ((sNext == HalfNMark)
-                        || SkipChars.indexOf(sNext) > -1) {
-                        sRead += sNext;
-                        iDx++;
-                    }
-
+                if ((sNext == HalfNMark) || SkipChars.indexOf(sNext) > -1) {
+                    sRead += sNext;
+                    iDx++;
                 }
             }
             else if (Vovels.indexOf(sChar) > -1) {
@@ -106,8 +114,6 @@ function calcMatra() {
             }
             else if (LaghuMatras.indexOf(sChar) > -1) {
                 if (iDx < iLen - 1) {
-                    var sNext = sLine[iDx + 1];
-
                     if (sNext == HalfNMark) {
                         AddGuru();
                         sRead += sNext;
@@ -131,39 +137,36 @@ function calcMatra() {
                 bVovel = false;
             }
 
-            if (bPrevVovel && bVovel) {
-                if (iDx < iLen - 1) {
-                    sNext = sLine[iDx + 1];
 
-                    if (GuruMatras.indexOf(sNext) > -1) {
-                        AddLaghu();
-                    }
-                    else if (sNext == HalfChar) {
-                        AddGuru();
-                    }
-                    else {
-                        AddLaghu();
-                    }
+            if (bPrevVovel && bVovel) {
+
+
+                if (GuruMatras.indexOf(sNext) > -1) {
+                    AddLaghu();
+                }
+                else if (sNext == HalfChar && (iDx < iLen - 2)) {
+                    AddGuru();
+                } else if (sNext == "") {
+                    AddLaghu();
+                    AddLaghu();
                 }
                 else {
                     AddLaghu();
-                    AddLaghu();
                 }
+
             }
             else if (!bVovel && !bSkip && !(sChar == HalfNMark)) {
                 sCheck = sChar;
                 AddLaghu();
             }
             else if (bVovel || (sChar == HalfNMark) || (sChar == HalfChar)) {
-                if (!bSpace && sChar == HalfNCheck) {
-                    sNext = sLine[iDx + 1];
+                if (!bSpace && sChar == HalfNCheck && sNext!="") {
 
-                    if (sNext == HalfChar) {
+                    if (sNext == HalfChar && (iDx < iLen - 2) ) {
                         ConvertToGurtu();
-
                     }
                 }
-                else if (sChar == HalfChar) {
+                else if (sChar == HalfChar && sNext!="") {
                     ConvertToGurtu();
                 }
                 else if (bVovel && SkipChars.indexOf(sPrev) > -1) {
@@ -190,13 +193,9 @@ function calcMatra() {
         }
 
         if (iLen > 0) {
-            document.getElementById('showMatra').innerHTML += "<div>"
-            document.getElementById('showMatra').innerHTML += "<div>" + sLine + "</div>";
-
-            document.getElementById('showMatra').innerHTML += "<div>" + sOut + " [" + iCount + "]</div>";
-            document.getElementById('showMatra').innerHTML += "<div>"
+            sInnerHtml += "<tr><td>" + sLine + "</td><td>&nbsp;</td><td>" + sOut + " [" + iCount + "]</td></tr>";
         } else {
-            document.getElementById('showMatra').innerHTML += "<br />"
+            sInnerHtml += "<tr><td>&nbsp;<td><td>&nbsp;<td><td>&nbsp;<td></tr>"
         }
     });
 
