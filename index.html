@@ -8,30 +8,7 @@
     <title>हिन्दी मात्रा गणना टूल</title>
     <style>
         /* Light theme colors */
-        :root {
-            --color-tone-1: #000000;
-            --color-tone-2: #787c7e;
-            --color-tone-3: #878a8c;
-            --color-tone-4: #d3d6da;
-            --color-tone-5: #edeff1;
-            --color-tone-6: #f6f7f8;
-            --color-tone-7: #ffffff;
-            --color-nav-hover: #f4f4f4;
-            --opacity-50: rgba(255, 255, 255, 0.5);
-        }
 
-        /* Dark Theme Colors */
-        .nightmode {
-            --color-tone-1: #ffffff;
-            --color-tone-2: #818384;
-            --color-tone-3: #565758;
-            --color-tone-4: #3a3a3c;
-            --color-tone-5: #272729;
-            --color-tone-6: #1a1a1b;
-            --color-tone-7: #121213;
-            --color-nav-hover: #2f2f31;
-            --opacity-50: rgba(0, 0, 0, 0.5);
-        }
 
         html {
             height: 100%;
@@ -39,28 +16,66 @@
 
         body {
             height: 100%;
-            background-color: var(--color-background);
             margin: 0;
             padding: 0;
             /* Prevent scrollbar appearing on page transition */
             overflow-y: hidden;
         }
+
+        .button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 25%;
+        }
+
+        .textarea {
+            width: 75%;
+            min-height: 200px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+        }
+
+        .divMatra{
+            width: 75%;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
     </style>
 </head>
 
 <body>
     <center>
         <h1>फ्री हिन्दी मात्रा गणना टूल</h1>
-        <p>आपका स्वागत है!, नीचे लिखे बॉक्स में अपनी कविता डालें और "मात्रा जोड़ें" इस बटन को दबाएँ.</p>
+        <p>आपका स्वागत है!</p>
+        <p>नीचे लिखे बॉक्स में अपनी कविता डालें और "मात्रा जोड़ें" इस बटन को दबाएँ.</p>
         <h4>ध्यान रहे की कविता देवनागरी लिपि में लिखी हो!</h4>
 
-        <div><input type="button" id="btnCalc" value="मात्रा जोड़ें" /></div>
+        <div><input type="button" class="button" id="btnCalc" value="मात्रा जोड़ें" /></div>
         <div></div>
         <div>
-            <textarea id="txtPoem" style="width: 50%; min-height: 200px;;">सिलसिला इस तरह आजकल हो गया
+            <textarea id="txtPoem" class="textarea">सिलसिला इस तरह आजकल हो गया
 एक चेहरे पे मरना शगल हो गया </textarea>
         </div>
-        <div id="showMatra"></div>
+        <div id="showMatra" class="divMatra"></div>
+        <div>
+            <hr size="1">
+            सर्वाधिकार सुरक्षित (All rights reserved) © मनीष पाण्डेय | अपनी प्रतिक्रिया और सुझाव यहाँ भेजें: <a
+                href="mailto:tomanishp@gmail.com">tomanishp@gmail.com</a>
+        </div>
     </center>
     <script src="./jsmatra.js"></script>
 </body>

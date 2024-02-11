@@ -14,21 +14,24 @@ let sOut = "";
 let sPrev = "";
 let bPrevVovel = false;
 let bSkip = false;
-
+let iWordLen = 0;
 
 var w = document.createElement("template");
 
 document.getElementById('btnCalc').addEventListener('click', calcMatra);
 
 function ConvertToGurtu() {
-    sOut = sOut.substring(0, sOut.length - 1);
-    iCount--;
-    AddGuru();
+    if (iWordLen > 0) {
+        sOut = sOut.substring(0, sOut.length - 1);
+        iCount--;
+        AddGuru();
+    }
 }
 function AddLaghu() {
     bSkip = true;
     sOut += "1";
     iCount++;
+    iWordLen++;
 }
 function AddGuru() {
     bSkip = true;
@@ -36,7 +39,7 @@ function AddGuru() {
     bPrevVovel = false;
     sOut += "2";
     iCount += 2;
-
+    iWordLen += 2;
 }
 
 function calcMatra() {
@@ -55,14 +58,16 @@ function calcMatra() {
         iCount = 0;
         bPrevVovel = false;
         bSkip = false;
-
+        iWordLen = 0;
         iLen = sLine.length;
+
+
         for (let iDx = 0; iDx < sLine.length; iDx++) {
             let sChar = sLine.charAt(iDx);
 
             let iCode = sLine.charCodeAt(iDx);
 
-            if (iCode!=32 && iCode <= 255) {
+            if (iCode != 32 && iCode <= 255) {
                 continue;
             }
 
@@ -78,6 +83,7 @@ function calcMatra() {
                     AddLaghu();
                 }
                 sOut += " ";
+                iWordLen = 0;
             }
             else if (SwarDoubles.indexOf(sChar) > -1) {
                 AddGuru();
@@ -182,12 +188,16 @@ function calcMatra() {
             bSpace = (sChar == " ");
 
         }
-        document.getElementById('showMatra').innerHTML += "<div>"
-        document.getElementById('showMatra').innerHTML += "<div>" + sLine + "</div>";
 
-        document.getElementById('showMatra').innerHTML += "<div>" + sOut + " [" + iCount + "]</div>";
-        document.getElementById('showMatra').innerHTML += "<div>"
+        if (iLen > 0) {
+            document.getElementById('showMatra').innerHTML += "<div>"
+            document.getElementById('showMatra').innerHTML += "<div>" + sLine + "</div>";
 
+            document.getElementById('showMatra').innerHTML += "<div>" + sOut + " [" + iCount + "]</div>";
+            document.getElementById('showMatra').innerHTML += "<div>"
+        } else {
+            document.getElementById('showMatra').innerHTML += "<br />"
+        }
     });
 
 
