@@ -84,7 +84,7 @@ function processText() {
             bSkip = false;
 
             if (iDx < iLen - 1) {
-                sNext = sLine[iDx + 1];
+                sNext = sLine[iDx + 1].trim();
             } else {
                 sNext = "";
             }
@@ -146,7 +146,7 @@ function processText() {
                 }
                 else if (sNext == HalfChar && (iDx < iLen - 2)) {
                     AddGuru();
-                } else if (sNext == "" ||  && sNext==" ") {
+                } else if (sNext == "") {
                     AddLaghu();
                     AddLaghu();
                 }
@@ -160,13 +160,13 @@ function processText() {
                 AddLaghu();
             }
             else if (bVovel || (sChar == HalfNMark) || (sChar == HalfChar)) {
-                if (!bSpace && sChar == HalfNCheck && sNext!="" && sNext!=" ") {
+                if (!bSpace && sChar == HalfNCheck && sNext!="") {
 
                     if (sNext == HalfChar && (iDx < iLen - 2) ) {
                         ConvertToGurtu();
                     }
                 }
-                else if (sChar == HalfChar && sNext!="" && sNext!=" ") {
+                else if (sChar == HalfChar && sNext!="") {
                     ConvertToGurtu();
                 }
                 else if (bVovel && SkipChars.indexOf(sPrev) > -1) {
