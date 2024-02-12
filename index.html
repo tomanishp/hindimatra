@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta name="description" content="This is tool for calculating Matras in Hindi Poetry. हिन्दी मात्रा गणना के लिए टूल">
+    <meta name="description"
+        content="This is tool for calculating Matras in Hindi Poetry. हिन्दी मात्रा गणना के लिए टूल">
     <title>हिन्दी मात्रा की गणना</title>
     <style>
         /* Light theme colors */
@@ -23,6 +24,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        div {
+            padding: 4px;
+        }
+
         .button {
             background-color: #04AA6D;
             border: none;
@@ -34,23 +39,29 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
-            width: 25%;
+            width: 40%;
         }
 
         .textarea {
-            width: 95%;
-            min-height: 200px;
-            padding: 12px 20px;
+            padding: 10px;
             box-sizing: border-box;
             border: 2px solid #ccc;
             border-radius: 4px;
             background-color: #f8f8f8;
             font-size: 16px;
+            white-space: nowrap;
+            overflow-wrap: normal;
+            overflow-x: scroll;
+            min-width: 350px;
+            min-height: 200px;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+
         }
 
         .divmatra {
             width: 95%;
-            padding: 12px 20px;
             box-sizing: border-box;
             font-size: 16px;
         }
@@ -62,15 +73,36 @@
             padding: 2px;
 
         }
+
         .float-container {
-            padding: 20px;
-        }
-        
-        .float-child {
-            width: 50%;
             float: left;
-            padding: 20px;
-        }  
+            width: 100%;
+        }
+
+
+        .left {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0px;
+            height: 100%;
+        }
+
+        .right {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0px;
+        }
+
+        .footer {
+            width: 100%;
+            padding: 10px;
+            display: block;
+            float: left;
+        }
+
+        td {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -84,24 +116,34 @@
                 और लय के सूत्र
             </a> </h4>
 
-        <p><bold>नोट: हम आपकी कोई जानकारी सुरक्षित नहीं रखते ना ही सर्वर पर
-            भेजते हैं इसलिए अपनी कविता में किया गया बदलाव सावधानी
-            से सेव कर लें!</bold></p>
+        <div>
+            <bold>नोट: हम आपकी कोई जानकारी सुरक्षित नहीं रखते ना ही सर्वर पर
+                भेजते हैं इसलिए अपनी कविता में किया गया बदलाव सावधानी
+                से सेव कर लें!</bold>
+        </div>
 
         <div><input type="button" class="button" id="btnCalc" value="मात्रा जोड़ें" /></div>
-        <div>
-            <textarea id="txtPoem" class="textarea">सिलसिला इस तरह आजकल हो गया
-एक चेहरे पे मरना शगल हो गया </textarea>
-                <div id="showMatra" class="divmatra" />
+        <div class="float-container">
+            <div class="left">
+                <textarea id="txtPoem" class="textarea">हुँकारों से महलों की नींव उखड़ जाती
+साँसों के बल से ताज हवा में उड़ता है
+जनता की रोके राह, समय में ताव कहाँ ? 
+वह जिधर चाहती, काल उधर ही मुड़ता है </textarea>
+            </div>
+            <div class="right">
+                <div id="showMatra" class="divmatra"></div>
+            </div>
         </div>
-        
-        <div>
+        <div class="footer">
             <hr size="1">
-            सर्वाधिकार सुरक्षित (All rights reserved) © मनीष पाण्डेय | अपनी प्रतिक्रिया और सुझाव यहाँ भेजें: <a
-                href="mailto:tomanishp@gmail.com">tomanishp@gmail.com</a>
+            सर्वाधिकार सुरक्षित (All rights reserved) © मनीष पाण्डेय | अपनी प्रतिक्रिया और सुझाव यहाँ भेजें:
+            <a href="mailto:tomanishp@gmail.com">tomanishp@gmail.com</a>
             <p> सुधार लगातार जारी हैं इसलिए आपके प्रतिक्रिओं और सुझावों की प्रतीक्षा रहेगी</p>
         </div>
-    
+
+
+
+
     </center>
     <script src="./jsmatra.js"></script>
 </body>
