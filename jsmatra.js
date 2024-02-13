@@ -46,16 +46,20 @@ function AddGuru() {
 function calcMatra() {
     document.getElementById('showMatra').innerHTML = '';
 
-    sInnerHtml = "";
-    processText();
-    document.getElementById('showMatra').innerHTML += "<table class=\"matratable\">" + sInnerHtml + "</table>";;
+    var txtPoem = document.getElementById('txtPoem').value.trim();
 
-
+    if (txtPoem.length>0) {
+        sInnerHtml = "";
+        processText();
+        document.getElementById('showMatra').innerHTML = "<table class=\"matratable\">" + sInnerHtml + "</table>";;
+    }else {
+        document.getElementById('showMatra').innerHTML = "";
+    } 
 }
 
 function processText() {
-    var txtPoem = document.getElementById('txtPoem').value;
-    let sLines = txtPoem.trim().split("\n");
+    
+    let sLines = txtPoem.split("\n");
 
     sLines.forEach(element => {
 
