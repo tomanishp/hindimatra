@@ -50,14 +50,14 @@ function calcMatra() {
 
     if (txtPoem.length>0) {
         sInnerHtml = "";
-        processText();
+        processText(txtPoem);
         document.getElementById('showMatra').innerHTML = "<table class=\"matratable\">" + sInnerHtml + "</table>";;
     }else {
         document.getElementById('showMatra').innerHTML = "";
     } 
 }
 
-function processText() {
+function processText(txtPoem) {
     
     let sLines = txtPoem.split("\n");
 
