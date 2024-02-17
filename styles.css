@@ -1,0 +1,102 @@
+
+/* Light theme colors */
+
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+    padding: 4px;
+}
+
+.button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 40%;
+}
+
+.textarea {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+    min-width: 350px;
+    min-height: 200px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+
+}
+
+.divmatra {
+    width: 95%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+
+.float-container {
+    float: left;
+    width: 100%;
+}
+
+
+.left {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px;
+    height: auto;
+    text-align: center;
+}
+
+.right {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 10px;
+    max-width: 50%;
+    width:max-content;
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    padding-right: 0px;
+    display: block;
+    float: left;
+}
+
+.matratable {
+
+    width: 100%;
+    border: 0px solid;
+    padding: 0px;
+    vertical-align: top;
+}
+
+td {
+    text-align: center;
+    text-wrap: nowrap;
+    padding: 2px;
+    border: 0px solid;
+}

@@ -1,4 +1,4 @@
-let Vovels = ["क", "ख", "ग", "घ", "ङ", "च", "छ", "ज", "झ", "ञ", "ट", "ठ", "ड", "ढ", "ण", "त", "थ", "द", "ध", "न", "प", "फ", "ब", "भ", "म", "य", "र", "ल", "व", "श", "ष", "स", "ह"];
+let Vovels = ["क", "ख", "ग", "घ", "ङ", "च", "छ", "ज", "झ", "ञ", "ट", "ठ", "ड","ड़", "ढ","ढ़", "ण", "त", "थ", "द", "ध", "न", "प", "फ", "ब", "भ", "म", "य", "र", "ल", "व", "श", "ष", "स", "ह"];
 let SwarSingle = ["अ", "इ", "उ", "ए", "अं"];
 let GuruMatras = ["ा", "ी", "ू", "ू", "ॆ", "े", "ै", "ॊ", "ो", "ौ"];
 let LaghuMatras = ["ि", "ु", "ृ", "ॄ", "ॅ", "ँ"];
@@ -7,40 +7,44 @@ let SwarDoubles = ["आ", "ई", "ऊ", "ऐ", "ओ", "औ"];
 let HalfChar = "्";
 let HalfNCheck = "न";
 let HalfNMark = "ं";
-let SkipChars = ["ँ", "़", "़", ",", "…", ".", "!", ",", "।", ":", "-"];
-let iCount = 0;
-let sRead = "";
-let sOut = "";
+let SkipChars = ['ँ', '़', '़', ',', '…', '.', '!', ',', '।', ':', '-', '‘', '’', '—']
+let ilc = 0;
+let lr = "";
+let so = "";
 let sPrev = "";
-let bPrevVovel = false;
-let bSkip = false;
-let iWordLen = 0;
+let ipv = false;
+let bx = false;
 let sInnerHtml = "";
+let bga = false;
+let iwc = 0;
 
 var w = document.createElement("template");
 
 document.getElementById('btnCalc').addEventListener('click', calcMatra);
 
-function ConvertToGurtu() {
-    if (iWordLen > 0) {
-        sOut = sOut.substring(0, sOut.length - 1);
-        iCount--;
+function ConvertToGurtu(st=1) {
+    if (iwc > 0) {
+        so = so.substring(0, so.length - st);
+        ilc-=st;
+        iwc-=st;
         AddGuru();
     }
 }
 function AddLaghu() {
-    bSkip = true;
-    sOut += "1";
-    iCount++;
-    iWordLen++;
+    bx = true;
+    so += "1";
+    ilc++;
+    iwc++;
+    bga = false;
 }
 function AddGuru() {
-    bSkip = true;
+    bx = true;
     sPrev = "";
-    bPrevVovel = false;
-    sOut += "2";
-    iCount += 2;
-    iWordLen += 2;
+    ipv = false;
+    so += "2";
+    ilc += 2;
+    iwc += 2;
+    bga = true;
 }
 
 function calcMatra() {
@@ -55,149 +59,97 @@ function calcMatra() {
 
 function processText() {
     var txtPoem = document.getElementById('txtPoem').value;
-    let sLines = txtPoem.trim().split("\n");
+    let slts = txtPoem.trim().split("\n");
 
-    sLines.forEach(element => {
+    slts.forEach(element => {
 
-        sLine = element.trim();
-        sRead = "";
-        sOut = "";
-        sPrev = "";
-        iCount = 0;
-        bPrevVovel = false;
-        bSkip = false;
-        iWordLen = 0;
-        iLen = sLine.length;
+        lr = "";
+        so = "";
+        ilc = 0;
+        slt = element.trim();
+        var wordList = slt.split(" ");
 
+        wordList.forEach(sWord => {
 
-        for (let iDx = 0; iDx < sLine.length; iDx++) {
-            let sChar = sLine.charAt(iDx);
+            iwc = 0;
+            bga = false;
+            wt = sWord.trim();
+            i = wt.length;
+            if (i > 0) {
 
-            let iCode = sLine.charCodeAt(iDx);
+                if (ilc > 0) so += " ";
+                sPrev = "";
+                ipv = false;
 
-            if (iCode != 32 && iCode <= 255) {
-                continue;
-            }
+                for (let ix = 0; ix < i; ix++) {
 
-            bSpace = false;
-            bVovel = false;
-            bSkip = false;
+                    let ca = wt.charAt(ix);
 
-            if (iDx < iLen - 1) {
-                sNext = sLine[iDx + 1];
-            } else {
-                sNext = "";
-            }
+                    if (wt.charCodeAt(ix) <= 255) continue;
 
-            sRead += sChar;
+                    iv = false;
+                    bx = false;
 
-            if (sChar == " ") {
-                bSkip = true;
-                if (bPrevVovel) {
-                    AddLaghu();
-                }
-                sOut += " ";
-                iWordLen = 0;
-            }
-            else if (SwarDoubles.indexOf(sChar) > -1) {
-                AddGuru();
-            }
-            else if (GuruMatras.indexOf(sChar) > -1) {
-                AddGuru();
-                if ((sNext == HalfNMark) || SkipChars.indexOf(sNext) > -1) {
-                    sRead += sNext;
-                    iDx++;
-                }
-            }
-            else if (Vovels.indexOf(sChar) > -1) {
-                bVovel = true;
-            }
-            else if (LaghuMatras.indexOf(sChar) > -1) {
-                if (iDx < iLen - 1) {
-                    if (sNext == HalfNMark) {
-                        AddGuru();
-                        sRead += sNext;
-                        iDx++;
+                    if (ix < i - 1) {
+                        sn = wt[ix + 1];
                     }
-                    else {
+
+                    lr += ca;
+
+                    if ((Vovels.indexOf(ca) > -1) || (SwarSingle.indexOf(ca) > -1)) {
                         AddLaghu();
-                    }
-
-                }
-            }
-            else if (SwarSingle.indexOf(sChar) > -1) {
-                bVovel = true;
-            }
-            else if (SkipChars.indexOf(sChar) > -1) {
-                bSkip = true;
-                bVovel = false;
-            }
-            else if (sChar == HalfChar) {
-                bSkip = true;
-                bVovel = false;
-            }
-
-
-            if (bPrevVovel && bVovel) {
-
-
-                if (GuruMatras.indexOf(sNext) > -1) {
-                    AddLaghu();
-                }
-                else if (sNext == HalfChar && (iDx < iLen - 2)) {
-                    AddGuru();
-                } else if (sNext == "") {
-                    AddLaghu();
-                    AddLaghu();
-                }
-                else {
-                    AddLaghu();
-                }
-
-            }
-            else if (!bVovel && !bSkip && !(sChar == HalfNMark)) {
-                sCheck = sChar;
-                AddLaghu();
-            }
-            else if (bVovel || (sChar == HalfNMark) || (sChar == HalfChar)) {
-                if (!bSpace && sChar == HalfNCheck && sNext!="") {
-
-                    if (sNext == HalfChar && (iDx < iLen - 2) ) {
-                        ConvertToGurtu();
-                    }
-                }
-                else if (sChar == HalfChar && sNext!="") {
-                    ConvertToGurtu();
-                }
-                else if (bVovel && SkipChars.indexOf(sPrev) > -1) {
-                    AddLaghu();
-                }
-                else if (sChar == HalfNMark) {
-                    if (!bPrevVovel) {
-                        ConvertToGurtu();
-                    } else {
+                        /*
+                        if (sn == HalfChar) {
+                            if (iwc > 0 && !bga) {
+                                ConvertToGurtu();
+                            }
+                            ix++;
+                            iv = false;
+                            bx = true;
+                        } else if (sn == HalfNMark) {
+                            AddGuru();
+                            ix++;
+                            iv = false;
+                            bx = true;
+                        } else {
+                            AddLaghu();
+                        } */
+                    } else if (SwarDoubles.indexOf(ca) > -1) {
                         AddGuru();
                     }
-                }
-                else if (iDx == iLen - 1) {
-                    AddLaghu();
+                    else if ((GuruMatras.indexOf(ca) > -1) && !bga) {
+                        ConvertToGurtu();
+                    }
+                     else if (ca == HalfChar) {
+                        if (iwc > 0 && !bga && ix<i-1) {
+                            ConvertToGurtu(2);
+                        }else if (idx=i-1){
+                            AddLaghu();
+                        }
+                    }else if (ca == HalfNMark) {
+                        if (iwc > 0 && !bga && ix<i-1) {
+                            ConvertToGurtu();
+                        }
+                    }else if ((LaghuMatras.indexOf(ca) > -1) || (SkipChars.indexOf(ca) > -1)) {
+                        bx = true;
+                        iv = false;
+                    }
+
+                    sPrev = ca;
+                    ipv = iv;
+
                 }
             }
-            else {
-                sCheck = sChar;
-            }
-            sPrev = sChar;
-            bPrevVovel = bVovel;
-            bSpace = (sChar == " ");
 
-        }
+        });
 
-        if (iLen > 0) {
-            sInnerHtml += "<tr><td>" + sLine + "</td><td>&nbsp;</td><td>" + sOut + " [" + iCount + "]</td></tr>";
+
+        if (ilc > 0) {
+            sInnerHtml += "<tr><td>" + slt + "</td><td>&nbsp;</td><td>" + so + " [" + ilc + "]</td></tr>";
         } else {
             sInnerHtml += "<tr><td>&nbsp;<td><td>&nbsp;<td><td>&nbsp;<td></tr>"
         }
-    });
 
+    });
 
 }
