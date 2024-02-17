@@ -35,9 +35,7 @@ div {
 .textarea {
     padding: 10px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
     border-radius: 4px;
-    background-color: #f8f8f8;
     font-size: 16px;
     overflow-wrap: normal;
     overflow-x: scroll;
@@ -45,38 +43,32 @@ div {
     min-height: 200px;
     top: 0;
     bottom: 0;
+    width: 95%;
     height: 100%;
-
 }
 
 .divmatra {
     width: 95%;
     box-sizing: border-box;
     font-size: 16px;
+    
 }
-
 
 .float-container {
+    width: 100vw;
     float: left;
-    width: 100%;
 }
 
-
 .left {
-    display: inline-block;
     vertical-align: top;
-    padding: 0px;
-    height: auto;
-    text-align: center;
+    min-width: 350px;
+    display: inline-block; 
 }
 
 .right {
-    display: inline-block;
     vertical-align: top;
-    padding-right: 10px;
-    max-width: 50%;
-    width:max-content;
-    text-align: center;
+    min-width: 350px;
+    display: inline-block;     
 }
 
 .footer {
