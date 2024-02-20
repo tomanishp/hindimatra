@@ -1,4 +1,5 @@
 let lV = ["क", "ख", "ग", "घ", "ङ", "च", "छ", "ज", "झ", "ञ", "ट", "ठ", "ड", "ड़", "ढ", "ढ़", "ण", "त", "थ", "द", "ध", "न", "प", "फ", "ब", "भ", "म", "य", "र", "ल", "व", "श", "ष", "स", "ह"];
+let lVN =["क़", "ख़", "ग़", "ज़", "झ़", "फ़", "ड़", "ढ़"]
 let lVP = ["अ", "इ", "उ", "ए", "अं", "ऋ"];
 let lGM = ["ा", "ी", "ू", "ू", "ॆ", "े", "ै", "ॊ", "ो", "ौ"];
 let lLM = ["ि", "ु", "ृ", "ॄ", "ॅ", "ँ"];
@@ -6,7 +7,6 @@ let aS = ["क्ष", "त्र", "ज्ञ", "ऋ"];
 let aSD = ["आ", "ई", "ऊ", "ऐ", "ओ", "औ"];
 let cX = "्";
 let cNX = "ं";
-let aXS = ['ँ', '़', '़', ',', '…', '.', '!', ',', '।', ':', '-', '‘', '’', '—']
 let ilc = 0;
 let lr = "";
 let so = "";
@@ -24,7 +24,7 @@ function Flip(st = 1) {
     }
 }
 function Pop(st = 1) {
-    if (iwc > 0) {
+    if (so.length >= st) {
         so = so.substring(0, so.length - st);
         ilc -= st;
         iwc -= st;
@@ -73,12 +73,13 @@ function processText() {
                 for (let ix = 0; ix < i; ix++) {
 
                     let ca = wt.charAt(ix);
+                    let cc = wt.charCodeAt(ix);
 
-                    if (wt.charCodeAt(ix) <= 255) continue;
+                    if (cc <= 255) continue;
 
                     lr += ca;
 
-                    if ((lV.indexOf(ca) > -1) || (lVP.indexOf(ca) > -1)) {
+                    if ((lV.indexOf(ca) > -1) || (lVP.indexOf(ca) > -1) || (lVN.indexOf(ca) > -1)) {
                         Push();
                     } else if (aSD.indexOf(ca) > -1) {
                         Push(2);
