@@ -1,5 +1,5 @@
 let lV = ["क", "ख", "ग", "घ", "ङ", "च", "छ", "ज", "झ", "ञ", "ट", "ठ", "ड", "ड़", "ढ", "ढ़", "ण", "त", "थ", "द", "ध", "न", "प", "फ", "ब", "भ", "म", "य", "र", "ल", "व", "श", "ष", "स", "ह"];
-let lVN =["क़", "ख़", "ग़", "ज़", "झ़", "फ़", "ड़", "ढ़"]
+let lVN = ["क़", "ख़", "ग़", "ज़", "झ़", "फ़", "ड़", "ढ़"]
 let lVP = ["अ", "इ", "उ", "ए", "अं", "ऋ"];
 let lGM = ["ा", "ी", "ू", "ू", "ॆ", "े", "ै", "ॊ", "ो", "ौ"];
 let lLM = ["ि", "ु", "ृ", "ॄ", "ॅ", "ँ"];
@@ -13,7 +13,7 @@ let so = "";
 let sInnerHtml = "";
 let bga = false;
 let iwc = 0;
-
+var isMatrik = true;
 
 document.getElementById('btnCalc').addEventListener('click', calcMatra);
 
@@ -41,6 +41,7 @@ function Push(st = 1) {
 function calcMatra() {
     document.getElementById('showMatra').innerHTML = '';
 
+    isMatrik = document.getElementById('matrik').checked;
     sInnerHtml = "";
     processText();
     document.getElementById('showMatra').innerHTML += "<table class=\"matratable\">" + sInnerHtml + "</table>";;
@@ -82,25 +83,27 @@ function processText() {
                     if ((lV.indexOf(ca) > -1) || (lVP.indexOf(ca) > -1) || (lVN.indexOf(ca) > -1)) {
                         Push();
                     } else if (aSD.indexOf(ca) > -1) {
-                        Push(2);
-                    }
-                    else if ((lGM.indexOf(ca) > -1) && !bga) {
-                        Flip();
+                        Push(isMatrik ? 2 : 1);
+                    } else if (!bga && (lGM.indexOf(ca) > -1)) {
+                        if (isMatrik) { // needed only for matrik
+                            Flip();
+                        }
                     }
                     else if (ca == cX) {
-                        if (iwc > 1 && !bga && ix < i - 1) {
+                        if (!isMatrik) {
+                            Pop();
+                        } else if (iwc > 1 && !bga && ix < i - 1) {
                             Flip(2);
-                        } if(iwc==1){
+                        } else if (iwc == 1) {
                             Pop();
                         }
-                    } else if (ca == cNX) {
+                    } else if (isMatrik && ca == cNX) {
                         if (iwc > 0 && !bga && ix < i - 1) {
                             Flip();
                         }
                     }
                 }
             }
-
         });
 
 
