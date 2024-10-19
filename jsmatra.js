@@ -1,126 +1,152 @@
-function _0x4025() {
-    const _0x539474 = ['</td><td>&nbsp;</td><td>', '10053584NyzaKG', ']</td></tr>', '5388TCAoeD', '10rWvQeF', 'indexOf', 'क्ष', 'length', 'txtPoem', 'त्र', 'showMatra', 'forEach', 'addEventListener', 'trim', '20gUEGmb', 'matrik', 'value', 'click', '4966137aRjWoH', '270900aajanF', 'ज्ञ', 'charAt', '1CUqysM', 'btnCalc', 'checked', 'innerHTML', '7946719MWrZfa', 'charCodeAt', '1487444SvlXZA', 'getElementById', 'substring', '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>', '1831442HWXfFI', '<tr><td>', '11662TTfAeC', 'split'];
-    _0x4025 = function() {
-        return _0x539474;
-    }
-    ;
-    return _0x4025();
-}
-const _0x3bf81b = _0x333a;
-(function(_0x53c3fe, _0x2f02c2) {
-    const _0x14488e = _0x333a
-      , _0x5f0e1d = _0x53c3fe();
+const _0x11a43e = _0x4d6f;
+(function(_0x4bba1a, _0x470819) {
+    const _0x1af337 = _0x4d6f
+      , _0x451a87 = _0x4bba1a();
     while (!![]) {
         try {
-            const _0x30c03b = parseInt(_0x14488e(0xc1)) / 0x1 * (parseInt(_0x14488e(0xcb)) / 0x2) + -parseInt(_0x14488e(0xbe)) / 0x3 + -parseInt(_0x14488e(0xc7)) / 0x4 * (-parseInt(_0x14488e(0xb9)) / 0x5) + parseInt(_0x14488e(0xae)) / 0x6 * (-parseInt(_0x14488e(0xa9)) / 0x7) + parseInt(_0x14488e(0xac)) / 0x8 + -parseInt(_0x14488e(0xbd)) / 0x9 + -parseInt(_0x14488e(0xaf)) / 0xa * (parseInt(_0x14488e(0xc5)) / 0xb);
-            if (_0x30c03b === _0x2f02c2)
+            const _0x30286e = -parseInt(_0x1af337(0x170)) / 0x1 * (-parseInt(_0x1af337(0x159)) / 0x2) + parseInt(_0x1af337(0x15b)) / 0x3 + parseInt(_0x1af337(0x15d)) / 0x4 * (parseInt(_0x1af337(0x161)) / 0x5) + parseInt(_0x1af337(0x16a)) / 0x6 * (parseInt(_0x1af337(0x152)) / 0x7) + parseInt(_0x1af337(0x145)) / 0x8 + -parseInt(_0x1af337(0x16d)) / 0x9 * (-parseInt(_0x1af337(0x160)) / 0xa) + -parseInt(_0x1af337(0x165)) / 0xb * (parseInt(_0x1af337(0x142)) / 0xc);
+            if (_0x30286e === _0x470819)
                 break;
             else
-                _0x5f0e1d['push'](_0x5f0e1d['shift']());
-        } catch (_0x1633fc) {
-            _0x5f0e1d['push'](_0x5f0e1d['shift']());
+                _0x451a87['push'](_0x451a87['shift']());
+        } catch (_0x49cb24) {
+            _0x451a87['push'](_0x451a87['shift']());
         }
     }
-}(_0x4025, 0xc3229));
+}(_0x59c2, 0x18e84));
 let lV = ['क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ड़', 'ढ', 'ढ़', 'ण', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह']
   , lVN = ['क़', 'ख़', 'ग़', 'ज़', 'झ़', 'फ़', 'ड़', 'ढ़']
   , lVP = ['अ', 'इ', 'उ', 'ए', 'अं', 'ऋ']
   , lGM = ['ा', 'ी', 'ू', 'ू', 'ॆ', 'े', 'ै', 'ॊ', 'ो', 'ौ']
   , lLM = ['ि', 'ु', 'ृ', 'ॄ', 'ॅ', 'ँ']
-  , aS = [_0x3bf81b(0xb1), _0x3bf81b(0xb4), _0x3bf81b(0xbf), 'ऋ']
+  , aS = [_0x11a43e(0x14d), 'त्र', 'ज्ञ', 'ऋ']
   , aSD = ['आ', 'ई', 'ऊ', 'ऐ', 'ओ', 'औ']
   , cX = '्'
   , cNX = 'ं'
-  , ilc = 0x0
-  , lr = ''
-  , so = ''
-  , sInnerHtml = ''
+  , iLC = 0x0
+  , iLCV = 0x0
+  , lR = ''
+  , sO = ''
+  , sOV = ''
+  , sIH = ''
   , bga = ![]
   , iwc = 0x0;
-var isMatrik = !![];
-document['getElementById'](_0x3bf81b(0xc2))[_0x3bf81b(0xb7)](_0x3bf81b(0xbc), calcMatra);
-function _0x333a(_0xbfbcd2, _0x3e0c92) {
-    const _0x40251d = _0x4025();
-    return _0x333a = function(_0x333a97, _0x18e37b) {
-        _0x333a97 = _0x333a97 - 0xa9;
-        let _0x4ebc5c = _0x40251d[_0x333a97];
-        return _0x4ebc5c;
+var iMC = !![];
+let vS = ['य', 'म', 'त', 'र', 'ज', 'भ', 'न', 'स']
+  , vSC = [_0x11a43e(0x14b), 'ऽऽऽ', _0x11a43e(0x151), 'ऽ।ऽ', _0x11a43e(0x14c), _0x11a43e(0x16b), _0x11a43e(0x144), _0x11a43e(0x16c)]
+  , vSG = 'ऽ'
+  , vSL = '।'
+  , sTM = '';
+document[_0x11a43e(0x158)](_0x11a43e(0x167))[_0x11a43e(0x171)](_0x11a43e(0x15e), calcMatra),
+document['getElementById']('matrik')[_0x11a43e(0x171)]('click', toggleDef),
+document[_0x11a43e(0x158)]('varnik')[_0x11a43e(0x171)](_0x11a43e(0x15e), toggleDef);
+function toggleDef() {
+    const _0x70196f = _0x11a43e;
+    iMC = document[_0x70196f(0x158)](_0x70196f(0x166))['checked'],
+    document['getElementById'](_0x70196f(0x169))[_0x70196f(0x150)][_0x70196f(0x146)] = iMC ? 'block' : _0x70196f(0x163),
+    document['getElementById']('divVarnik')[_0x70196f(0x150)][_0x70196f(0x146)] = iMC ? _0x70196f(0x163) : 'block';
+}
+function _0x4d6f(_0x2219c9, _0x27f5dc) {
+    const _0x59c2b5 = _0x59c2();
+    return _0x4d6f = function(_0x4d6f45, _0x18dc0e) {
+        _0x4d6f45 = _0x4d6f45 - 0x142;
+        let _0x48e782 = _0x59c2b5[_0x4d6f45];
+        return _0x48e782;
     }
     ,
-    _0x333a(_0xbfbcd2, _0x3e0c92);
+    _0x4d6f(_0x2219c9, _0x27f5dc);
 }
-function Flip(_0x1a3893=0x1) {
-    iwc > 0x0 && (Pop(_0x1a3893),
+function Flip(_0x211e7a=0x1) {
+    iwc > 0x0 && (Pop(_0x211e7a),
     Push(0x2));
 }
-function Pop(_0x5dbf4f=0x1) {
-    const _0x16b125 = _0x3bf81b;
-    so[_0x16b125(0xb2)] >= _0x5dbf4f && (so = so[_0x16b125(0xc9)](0x0, so['length'] - _0x5dbf4f),
-    ilc -= _0x5dbf4f,
-    iwc -= _0x5dbf4f);
+function Pop(_0x2649b2=0x1) {
+    const _0x1a1b77 = _0x11a43e;
+    sO[_0x1a1b77(0x15c)] >= _0x2649b2 && (sO = sO[_0x1a1b77(0x16f)](0x0, sO[_0x1a1b77(0x15c)] - _0x2649b2),
+    iLC -= _0x2649b2,
+    iwc -= _0x2649b2);
 }
-function Push(_0xeb6be6=0x1) {
+function Push(_0x269a98=0x1) {
     bx = !![],
-    so += _0xeb6be6,
-    ilc += _0xeb6be6,
-    iwc += _0xeb6be6,
-    bga = _0xeb6be6 == 0x2;
+    sO += _0x269a98,
+    iLC += _0x269a98,
+    iwc += _0x269a98,
+    bga = _0x269a98 == 0x2;
 }
 function calcMatra() {
-    const _0x2b6638 = _0x3bf81b;
-    document[_0x2b6638(0xc8)](_0x2b6638(0xb5))['innerHTML'] = '',
-    isMatrik = document['getElementById'](_0x2b6638(0xba))[_0x2b6638(0xc3)],
-    sInnerHtml = '',
+    const _0x28bf20 = _0x11a43e;
+    document[_0x28bf20(0x158)](_0x28bf20(0x147))[_0x28bf20(0x14f)] = '',
+    iMC = document['getElementById'](_0x28bf20(0x166))[_0x28bf20(0x155)],
+    sIH = '',
     processText(),
-    document[_0x2b6638(0xc8)]('showMatra')[_0x2b6638(0xc4)] += '<table\x20class=\x22matratable\x22>' + sInnerHtml + '</table>';
+    document[_0x28bf20(0x158)](_0x28bf20(0x147))['innerHTML'] += _0x28bf20(0x153) + sIH + _0x28bf20(0x168);
     ;
 }
+function _0x59c2() {
+    const _0x4baf21 = ['ऽ।।', '।।ऽ', '471519ObyQha', 'value', 'substring', '278uRqOPu', 'addEventListener', '37980RHKRMk', '</td><td>&nbsp;</td><td>', '।।।', '446600IDrkpl', 'display', 'showMatra', 'split', 'charCodeAt', 'indexOf', '।ऽऽ', '।ऽ।', 'क्ष', '<tr><td>', 'innerHTML', 'style', 'ऽऽ।', '1060255wrzWWv', '<table\x20class=\x22matratable\x22>', 'charAt', 'checked', 'forEach', 'गण\x20', 'getElementById', '194IYzPIS', 'replaceAll', '51285kCAzvE', 'length', '705308LewFFc', 'click', ']</td></tr>', '20dldoxE', '5MKtzrc', 'trim', 'none', '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>', '1496GRhnoR', 'matrik', 'btnCalc', '</table>', 'divMatrik', '6rLRnHU'];
+    _0x59c2 = function() {
+        return _0x4baf21;
+    }
+    ;
+    return _0x59c2();
+}
+function calcVarnik() {
+    const _0x453ad1 = _0x11a43e;
+    sTM = sO[_0x453ad1(0x15a)]('\x20', '')['replaceAll']('1', vSL)[_0x453ad1(0x15a)]('2', vSG),
+    sOV = '',
+    sLen = sTM[_0x453ad1(0x15c)] / 0x3;
+    let _0x1b5613 = 0x0;
+    for (_0x1b5613 = 0x0; _0x1b5613 < sLen; _0x1b5613++) {
+        sIn = _0x1b5613 * 0x3,
+        ss = sTM['substring'](sIn, sIn + 0x3),
+        ssI = vSC['indexOf'](ss),
+        ssI >= 0x0 && (sOV += vS[ssI] + _0x453ad1(0x157));
+    }
+    _0x1b5613 > sLen && (sOV += '(' + sTM[_0x453ad1(0x16f)]((_0x1b5613 - 0x1) * 0x3) + ')'),
+    iLCV = sTM[_0x453ad1(0x15c)];
+}
 function processText() {
-    const _0x2ed670 = _0x3bf81b;
-    var _0x593a5b = document['getElementById'](_0x2ed670(0xb3))[_0x2ed670(0xbb)];
-    let _0x11fdaa = _0x593a5b[_0x2ed670(0xb8)]()['split']('\x0a');
-    _0x11fdaa[_0x2ed670(0xb6)](_0x2ee5c1 => {
-        const _0x20d4c9 = _0x2ed670;
-        lr = '',
-        so = '',
-        ilc = 0x0;
-        let _0x2bc50a = _0x2ee5c1[_0x20d4c9(0xb8)]();
-        var _0x52a637 = _0x2bc50a[_0x20d4c9(0xaa)]('\x20');
-        _0x52a637[_0x20d4c9(0xb6)](_0x419045 => {
-            const _0x2eec8a = _0x20d4c9;
+    const _0x4a74e4 = _0x11a43e;
+    var _0x30e014 = document[_0x4a74e4(0x158)]('txtPoem')[_0x4a74e4(0x16e)];
+    let _0x495e8b = _0x30e014[_0x4a74e4(0x162)]()[_0x4a74e4(0x148)]('\x0a');
+    _0x495e8b['forEach'](_0x26d0c1 => {
+        const _0x28a3d0 = _0x4a74e4;
+        lR = '',
+        sO = '',
+        iLC = 0x0;
+        let _0x9b805 = _0x26d0c1[_0x28a3d0(0x162)]();
+        var _0x38d8e9 = _0x9b805['split']('\x20');
+        _0x38d8e9[_0x28a3d0(0x156)](_0x5167e9 => {
+            const _0x2ff73b = _0x28a3d0;
             iwc = 0x0,
             bga = ![],
-            wt = _0x419045[_0x2eec8a(0xb8)](),
-            i = wt['length'];
-            if (i > 0x0) {
-                if (ilc > 0x0)
-                    so += '\x20';
-                for (let _0x1f25ea = 0x0; _0x1f25ea < i; _0x1f25ea++) {
-                    let _0x262a8b = wt[_0x2eec8a(0xc0)](_0x1f25ea)
-                      , _0x56398a = wt[_0x2eec8a(0xc6)](_0x1f25ea);
-                    if (_0x56398a <= 0xff)
+            wt = _0x5167e9['trim'](),
+            sLen = wt[_0x2ff73b(0x15c)];
+            if (sLen > 0x0) {
+                if (iLC > 0x0)
+                    sO += '\x20';
+                for (let _0xca50b = 0x0; _0xca50b < sLen; _0xca50b++) {
+                    let _0xea4b34 = wt[_0x2ff73b(0x154)](_0xca50b)
+                      , _0x5d9abb = wt[_0x2ff73b(0x149)](_0xca50b);
+                    if (_0x5d9abb <= 0xff)
                         continue;
-                    lr += _0x262a8b;
-                    if (lV['indexOf'](_0x262a8b) > -0x1 || lVP[_0x2eec8a(0xb0)](_0x262a8b) > -0x1 || lVN[_0x2eec8a(0xb0)](_0x262a8b) > -0x1)
+                    lR += _0xea4b34;
+                    if (lV[_0x2ff73b(0x14a)](_0xea4b34) > -0x1 || lVP['indexOf'](_0xea4b34) > -0x1 || lVN[_0x2ff73b(0x14a)](_0xea4b34) > -0x1)
                         Push();
                     else {
-                        if (aSD[_0x2eec8a(0xb0)](_0x262a8b) > -0x1)
-                            Push(isMatrik ? 0x2 : 0x1);
+                        if (aSD[_0x2ff73b(0x14a)](_0xea4b34) > -0x1)
+                            Push(0x2);
                         else {
-                            if (!bga && lGM[_0x2eec8a(0xb0)](_0x262a8b) > -0x1)
-                                isMatrik && Flip();
+                            if (!bga && lGM[_0x2ff73b(0x14a)](_0xea4b34) > -0x1)
+                                Flip();
                             else {
-                                if (_0x262a8b == cX) {
-                                    if (!isMatrik)
-                                        Pop();
-                                    else {
-                                        if (iwc > 0x1 && !bga && _0x1f25ea < i - 0x1)
-                                            Flip(0x2);
-                                        else
-                                            iwc == 0x1 && Pop();
-                                    }
+                                if (_0xea4b34 == cX) {
+                                    if (iwc > 0x1 && !bga && _0xca50b < sLen - 0x1)
+                                        Flip(0x2);
+                                    else
+                                        iwc == 0x1 && Pop();
                                 } else
-                                    isMatrik && _0x262a8b == cNX && (iwc > 0x0 && !bga && _0x1f25ea < i - 0x1 && Flip());
+                                    _0xea4b34 == cNX && (iwc > 0x0 && !bga && _0xca50b < sLen - 0x1 && Flip());
                             }
                         }
                     }
@@ -128,7 +154,8 @@ function processText() {
             }
         }
         ),
-        ilc > 0x0 ? sInnerHtml += _0x20d4c9(0xcc) + _0x2bc50a + _0x20d4c9(0xab) + so + '\x20[' + ilc + _0x20d4c9(0xad) : sInnerHtml += _0x20d4c9(0xca);
+        iLC > 0x0 ? iMC ? sIH += _0x28a3d0(0x14e) + _0x9b805 + _0x28a3d0(0x143) + sO + '\x20[' + iLC + _0x28a3d0(0x15f) : (calcVarnik(),
+        sIH += _0x28a3d0(0x14e) + _0x9b805 + _0x28a3d0(0x143) + sOV + '\x20[' + iLCV + _0x28a3d0(0x15f)) : sIH += _0x28a3d0(0x164);
     }
     );
 }
